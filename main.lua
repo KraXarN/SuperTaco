@@ -61,16 +61,6 @@ function love.load()
 	fontDebug = love.graphics.newFont("font/Mini.ttf", 18)
 	-- Load menu class, rest is loaded as needed
 	menu.load()
-	-- Dump debug info
-	--[[
-	if love.filesystem.exists("debug") == false then
-		love.filesystem.createDirectory("debug") -- TODO: Only create if -debug?
-	end
-	love.filesystem.write("debug/fullscreen_modes_1.json", JSON:encode_pretty(love.window.getFullscreenModes(1)))
-	love.filesystem.write("debug/supported.json", JSON:encode_pretty(love.graphics.getSupported()))
-	love.filesystem.write("debug/compressed_image_formats.json", JSON:encode_pretty(love.graphics.getCompressedImageFormats()))
-	love.filesystem.write("debug/system_limits.json", JSON:encode_pretty(love.graphics.getSystemLimits()))
-	--]]
 
 	-- Debug: Fullscreen resulotions
 	debugLog = "Supported fullscreen resulotions: "
