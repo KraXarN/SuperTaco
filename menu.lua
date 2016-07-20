@@ -69,27 +69,3 @@ end
 function menu_draw()
 	menu.draw()
 end
-
--- OLD CODE
-
---[[
-function love.keypressed(key)
-	-- Debug
-	print("Key pressed: " .. key)
-	-- Check menu keys
-	if key == "up" and opt > 0 then
-		opt = opt - 1
-	elseif key == "down" and opt < 2 then
-		opt = opt + 1
-	elseif key == "return" then
-		if opt == 0 then
-			-- Start Game
-		elseif opt == 1 then
-			-- Options
-		elseif opt == 2 then
-			-- Exit Game
-			love.event.quit()
-		end
-	end
-end
---]]
