@@ -1,1 +1,4 @@
-"*.bat" 
+*.bat
+*.sh
+
+template.lua
