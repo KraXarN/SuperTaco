@@ -77,9 +77,9 @@ function love.load()
 	debugFM = love.window.getFullscreenModes(1)
 	for i=1, table.getn(debugFM) do
 		if i == table.getn(debugFM) then
-			debugLog = debugLog .. debugFM[i].height .. "x" .. debugFM[i].width
+			debugLog = debugLog .. debugFM[i].width .. "x" .. debugFM[i].height
 		else
-			debugLog = debugLog .. debugFM[i].height .. "x" .. debugFM[i].width .. ", "
+			debugLog = debugLog .. debugFM[i].width .. "x" .. debugFM[i].height .. ", "
 		end
 	end
 	-- Debug: Supprted
