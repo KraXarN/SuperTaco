@@ -1,0 +1,10 @@
+menu.xm		Viral Legacy
+main.xm		Poppy Flower Girls
+boss.xm		Knuckles Sucks!
+game.xm		Bubble Machine
+ded.xm		Necromancer's Castle
+
+Final Boss
+Stage Complete
+Game Complete
+Special Stage
