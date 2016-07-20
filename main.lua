@@ -14,10 +14,6 @@ JSON = require "json"
 
 -- Gloval vars
 scene = "menu"
---[[
-windowX = 1280	-- love.graphics.getWidth()
-windowY = 720	-- love.graphics.getHeight()
---]]
 
 gravity = 900
 
