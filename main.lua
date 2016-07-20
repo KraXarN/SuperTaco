@@ -61,7 +61,8 @@ function love.load()
 	fontDebug = love.graphics.newFont("font/Mini.ttf", 18)
 	-- Load menu class, rest is loaded as needed
 	menu.load()
-	-- Dump debug info, TODO: Print to debug screen or dump all to file?
+	-- Dump debug info
+	--[[
 	if love.filesystem.exists("debug") == false then
 		love.filesystem.createDirectory("debug") -- TODO: Only create if -debug?
 	end
@@ -69,6 +70,38 @@ function love.load()
 	love.filesystem.write("debug/supported.json", JSON:encode_pretty(love.graphics.getSupported()))
 	love.filesystem.write("debug/compressed_image_formats.json", JSON:encode_pretty(love.graphics.getCompressedImageFormats()))
 	love.filesystem.write("debug/system_limits.json", JSON:encode_pretty(love.graphics.getSystemLimits()))
+	--]]
+
+	-- Debug: Fullscreen resulotions
+	debugLog = "Supported fullscreen resulotions: "
+	debugFM = love.window.getFullscreenModes(1)
+	for i=1, table.getn(debugFM) do
+		if i == table.getn(debugFM) then
+			debugLog = debugLog .. debugFM[i].height .. "x" .. debugFM[i].width
+		else
+			debugLog = debugLog .. debugFM[i].height .. "x" .. debugFM[i].width .. ", "
+		end
+	end
+	-- Debug: Supprted
+	debugS = love.graphics.getSupported()
+	debugLog = debugLog .. "\n\nclampzero: " .. tostring(debugS.clampzero) .. "\nlighten: " .. tostring(debugS.lighten) .. "\nmulticanvasformats: " .. tostring(debugS.multicanvasformats)
+	-- Debug: Compressed image formats
+	debugCIF = love.graphics.getCompressedImageFormats()
+	debugCIFy = "\n\nSupported image formats: "
+	debugCIFn = "\n\nUnsupported image formats: "
+	for k, v in pairs(debugCIF) do
+		if v then
+			debugCIFy = debugCIFy .. k .. ", "
+		else
+			debugCIFn = debugCIFn .. k .. ", "
+		end
+	end
+	debugLog = debugLog .. debugCIFy .. debugCIFn -- Remove last 2 chars?
+	-- Debug: System limits
+	debugSL = love.graphics.getSystemLimits()
+	debugLog = debugLog .. "\n\nMaximum size of points: " .. debugSL.pointsize .. "\nMaximum width or height of images and canvases: " .. debugSL.texturesize .. "\nMaximum number of canvases: " .. debugSL.multicanvas .. "\nMaximum AA samples: " .. debugSL.canvasmsaa
+
+	love.filesystem.write("debug.log", debugLog)
 end
 
 function love.update(dt)
@@ -138,7 +171,7 @@ function play(music, loop)
 	end
 	music:setVolume(setting.musicVolume / 100)
 	-- DEBUG: Don't play music
-	music:play()
+	--music:play()
 end
 
 function sfx(sound)
