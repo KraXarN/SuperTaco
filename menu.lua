@@ -44,16 +44,6 @@ function menu.draw()
 	-- Set font
 	love.graphics.setFont(fontTitle)
 	-- Draw menu (TODO: Work with multiple resulotions)
-	--[[
-	if opt == 0 then
-		love.graphics.print("=> Start Game \n   Options \n   Exit", 128, 280)
-	elseif opt == 1 then
-		love.graphics.print("   Start Game \n=> Options \n   Exit", 128, 280)
-	else
-		love.graphics.print("   Start Game \n   Options \n=> Exit", 128, 280)
-	end
-	--]]
-	--love.graphics.print("Opt: " .. opt, 16, 48)
 	love.graphics.print("New Game \nLoad Game \nOptions \nExit", 128, 280)
 	love.graphics.polygon("line", 84, 284+opt*32, 108, 296+opt*32, 84, 308+opt*32, 90, 296+opt*32)
 end
