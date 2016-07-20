@@ -5,7 +5,6 @@ function soundtest.load()
 	opt = 0
 	selm = 1 -- Selected Music
 	sels = 1 -- Selected Sound
-	track = nil
 	sound = {mus = {}, sfx = {}}
 	-- All music tracks
 	sound.mus.track = {"Menu", "Main Theme", "Boss", "Game Completed", "Game Over", "Dummy"}
