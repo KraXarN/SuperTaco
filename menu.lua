@@ -2,9 +2,6 @@ menu = {}
 
 function menu.load()
 	-- Music
-	--musicMenu = love.audio.newSource("music/dummy.xm")
-	--musicMenu:setLooping(true)
-	--musicMenu:play()
 	play("menu")
 	-- TESTING: Compress
 	if love.filesystem.exists("save") == false then
