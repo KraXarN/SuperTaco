@@ -9,8 +9,6 @@ require "lovedebug"
 --JSON = (loadfile "json.lua")()
 JSON = require "json"
 
---glName, glVersion, glVendor, glDevice = love.graphics.getRendererInfo()
-
 -- TESTING: Compressing
 --compressok = love.filesystem.write("image0.lz4", love.math.compress(love.image.newImageData("image/spritesheet_ground.png"), "lz4", 0))
 
@@ -25,14 +23,6 @@ gravity = 900
 
 -- TESTING
 start = love.timer.getTime()
-
--- Debug info
---print("Using " .. _VERSION)
---print("OpenGL Name: " .. glName)
---print("OpenGL Version: " .. glVersion)
---print("OpenGL Vendor: " .. glVendor)
---print("OpenGL Device: " .. glDevice)
---print("Running on " .. love.system.getOS())
 
 function love.load()
 	-- Config file
@@ -83,12 +73,6 @@ function love.load()
 	love.filesystem.write("debug/supported.json", JSON:encode_pretty(love.graphics.getSupported()))
 	love.filesystem.write("debug/compressed_image_formats.json", JSON:encode_pretty(love.graphics.getCompressedImageFormats()))
 	love.filesystem.write("debug/system_limits.json", JSON:encode_pretty(love.graphics.getSystemLimits()))
-	-- Testing
-	--[[
-	playerImageData = love.filesystem.newFileData("image/player.png")
-	playerImageDataCompressed = love.math.compress(playerImageData, "lz4", 9)
-	love.filesystem.write("playerImage9.lz4", playerImageDataCompressed)
-	--]]
 end
 
 function love.update(dt)
