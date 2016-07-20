@@ -1,32 +1,3 @@
---[[
-	( Max FPS )
-	( VSync )
-	Window Size (Scale)
-	Fullscreen
-	( MSAA )
-	-
-	Music Volume
-	Sound Volume
-	-
-	Controller
-	Keyboard
-	Sound Test
-	-
-	Apply / Go back
---]]
-
---[[
-{
-	"fullscreen": false,
-	"maxFps": 60,
-	"msaa": 0,
-	"musicVolume": 75,
-	"soundVolume": 100,
-	"vSync": false,
-	"windowScale": 2
-}
---]]
-
 options = {}
 
 function options.load()
